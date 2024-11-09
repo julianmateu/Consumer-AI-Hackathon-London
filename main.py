@@ -1,9 +1,13 @@
+import os
 from utils import logger
+from dotenv import load_dotenv
+
+load_dotenv()
+
+ELEVENLABS_API_KEY = os.getenv("ELEVENLABS_API_KEY")
 
 def main():
-    logger.info("Starting the main process.")
-    # Your main code logic here
-    logger.info("Finished the main process.")
+    logger.info("ELEVEN_LABS_API_KEY: " + ELEVENLABS_API_KEY)
 
 if __name__ == "__main__":
     main()
