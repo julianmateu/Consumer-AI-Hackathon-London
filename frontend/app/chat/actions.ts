@@ -1,12 +1,18 @@
 'use server'
  
-export async function getAgentId() {
+export async function getAgentId(): Promise<string> {
+    console.log('Getting agent ID');
     const agentId = process.env.AGENT_ID;
+    if (!agentId) {
+        throw new Error('AGENT_ID is not defined');
+    }
     return agentId;
 }
 
-export async function getSignedUrl() {
+export async function getSignedUrl(): Promise<string> {
+    console.log('Getting signed URL');
     const xiApiKey = process.env.XI_API_KEY;
+    console.log('XI_API_KEY:', xiApiKey);
     if (!xiApiKey) {
         throw new Error('XI_API_KEY is not defined');
     }
@@ -25,5 +31,8 @@ export async function getSignedUrl() {
         throw new Error('Failed to get signed URL');
     }
 
-    return await response.json();
+    const res = await response.json();
+    console.log('Response:', res);
+
+    return res.signed_url;
 }

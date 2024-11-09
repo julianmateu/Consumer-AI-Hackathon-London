@@ -1,0 +1,82 @@
+.chat-window-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #f7f9fc;
+  border: 1px solid #dfe3e8;
+  border-radius: 8px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.assistant-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.status-indicators {
+  display: flex;
+  flex-direction: column;
+}
+
+.status {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.status.connected {
+  color: #28a745; /* Green for connected */
+}
+
+.status.disconnected {
+  color: #dc3545; /* Red for disconnected */
+}
+
+.speaking-status {
+  font-size: 16px;
+  color: #6c757d; /* Neutral gray */
+}
+
+.speaking-status.speaking {
+  color: #00539CFF; /* Blue when speaking */
+}
+
+.chat-controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.button {
+  padding: 12px 24px;
+  background-color: #00539CFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.start-button:hover:enabled {
+  background-color: #0275d8;
+}
+
+.end-button {
+  background-color: #dc3545; /* Red background for end button */
+}
+
+.end-button:hover:enabled {
+  background-color: #c82333;
+}
