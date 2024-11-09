@@ -1,7 +1,5 @@
 # Consumer-AI-Hackathon-London
 
-
-
 1. Vehicle selection
 - RegNumber
 - Make
@@ -11,9 +9,9 @@
 - Damage_Description:
 3. Voice chat
 Location:
-Number of parties
-Aditional_Info:
-Time of day
+Number_of_parties
+Additional_Info:
+Time_of_day
 
 
 
