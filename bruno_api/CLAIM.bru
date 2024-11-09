@@ -1,0 +1,17 @@
+meta {
+  name: CLAIM
+  type: http
+  seq: 2
+}
+
+post {
+  url: {API_URL}/claim
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "bob"
+  }
+}
