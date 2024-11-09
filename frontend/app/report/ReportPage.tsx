@@ -1,7 +1,7 @@
 "use client";
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSearchParams } from 'next/navigation'
 
 const ReportPage: React.FC = () => {
@@ -19,6 +19,36 @@ const ReportPage: React.FC = () => {
   };
 
   const params = useSearchParams()
+  const vehicle = params.get('vehicle');
+  const [claimId, setClaimId] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Call an API to create a new claim and get the claim ID
+    const createClaim = async () => {
+      try {
+        const response = await fetch('/api/claim', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            vehicle,
+            ...reportData,
+          }),
+        });
+        if (response.ok) {
+          const data = await response.json();
+          setClaimId(data.claimId);
+        } else {
+          throw new Error('Failed to create claim');
+        }
+      } catch (error) {
+        console.error('Error creating claim:', error);
+      }
+    };
+
+    createClaim();
+  }
 
   return (
     <div className="report-page-container">
@@ -35,7 +65,7 @@ const ReportPage: React.FC = () => {
       <textarea value={reportData.damageDescription} /></p>
       {/* <p><strong>Status:</strong> {reportData.status}</p> */}
       {/* <elevenlabs-convai agent-id="iH8dikTVBkHmQE2er9lj"></elevenlabs-convai> */}
-      <button><Link href={`/chat?vehicle=${params.get('vehicle')}`}>Chat about your claim</Link></button>
+      <button><Link href={`/chat?vehicle=${vehicle}`}>Chat about your claim</Link></button>
     </div>
   );
 };
