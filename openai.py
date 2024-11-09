@@ -2,6 +2,7 @@ import os
 import base64
 import requests
 from dotenv import load_dotenv
+import pyperclip
 
 load_dotenv()
 
@@ -18,6 +19,12 @@ image_path = "resources/crash_pic.png"
 # Getting the base64 string
 base64_image = encode_image(image_path)
 
+
+pyperclip.copy(base64_image)
+
+print("BASE64 copied to clipboard")
+
+'''
 headers = {
   "Content-Type": "application/json",
   "Authorization": f"Bearer {OPEN_AI_KEY}"
@@ -48,3 +55,4 @@ payload = {
 response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
 
 print(response.json())
+'''
