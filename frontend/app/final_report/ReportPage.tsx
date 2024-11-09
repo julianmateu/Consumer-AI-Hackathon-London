@@ -37,11 +37,11 @@ const ReportPage: React.FC = () => {
       <p><strong>Damage Level:</strong> <input type="text" value={reportData.damageLevel} /></p>
       <p><strong>Damage Description:</strong>
       <textarea value={reportData.damageDescription} /></p>
-      <p><strong>Time of Day:</strong> <input type="text" value={reportData.timeOfDay}/></p>
-      <p><strong>Location:</strong> <input type="text" value={reportData.location}/></p>
-      <p><strong>Number of Parties:</strong> <input type="text" value={reportData.numberOfParties}/></p>
+      <p><strong>Time of Day:</strong> <input type="text" value={reportData.timeOfDay} onChange={() => {/*TODO*/}}/></p>
+      <p><strong>Location:</strong> <input type="text" value={reportData.location} onChange={() => {/*TODO*/}}/></p>
+      <p><strong>Number of Parties:</strong> <input type="text" value={reportData.numberOfParties} onChange={() => {/*TODO*/}}/></p>
       <p><strong>Additional Information:</strong>
-      <textarea value={reportData.additionalInfo} /></p>
+      <textarea value={reportData.additionalInfo} onChange={() => {/*TODO*/}}/></p>
       <button><Link href={`/submit?vehicle=${params.get('vehicle')}`}>Submit Report</Link></button>
     </div>
   );

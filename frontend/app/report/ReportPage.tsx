@@ -29,12 +29,9 @@ const ReportPage: React.FC = () => {
       <p><strong>Vehicle Type:</strong> {reportData.vehicleType}</p>
       <p><strong>Photos Attached:</strong> {reportData.photosAttached}</p>
       <p><Image src={reportData.pohtoUrl} alt="photo" width={100} height={100}></Image></p>
-      {/* Damage level and description are editable input fields */}
-      <p><strong>Damage Level:</strong> <input type="text" value={reportData.damageLevel} /></p>
+      <p><strong>Damage Level:</strong> <input type="text" value={reportData.damageLevel} onChange={() => {/*TODO*/}}/></p>
       <p><strong>Damage Description:</strong>
-      <textarea value={reportData.damageDescription} /></p>
-      {/* <p><strong>Status:</strong> {reportData.status}</p> */}
-      {/* <elevenlabs-convai agent-id="iH8dikTVBkHmQE2er9lj"></elevenlabs-convai> */}
+      <textarea value={reportData.damageDescription} onChange={() => {/*TODO*/}}/></p>
       <button><Link href={`/chat?vehicle=${params.get('vehicle')}`}>Chat about your claim</Link></button>
     </div>
   );
