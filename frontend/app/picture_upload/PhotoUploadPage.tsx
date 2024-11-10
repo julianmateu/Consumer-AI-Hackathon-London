@@ -4,12 +4,8 @@ import Image from "next/image";
 import { useState } from "react";
 
 const PhotoUploadPage = () => {
-<<<<<<< HEAD
   const [loading, setLoading] = useState(false);
-  const [file, setFile] = useState(null);
-=======
   const [file, setFile] = useState<File|null>(null);
->>>>>>> 2aa7ac9273e498427382ba7f87e60fcd3f15c824
   const params = useSearchParams();
 
   // Handle file selection
@@ -22,23 +18,23 @@ const PhotoUploadPage = () => {
     }
   };
 
-  // Handle form submission
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+  
     if (!file) {
       alert("Please select an image file");
       return;
     }
-
+  
     // Read file and convert to base64
     const reader = new FileReader();
     reader.readAsDataURL(file);
+    
     reader.onloadend = async () => {
-      setLoading(true);
+      setLoading(true); // Start loading
+      
       const base64Image = (reader.result as string)?.split(",")[1]; // Remove data URL prefix
-
-      // Send to API route
+  
       try {
         const response = await fetch("/api/upload-image", {
           method: "POST",
@@ -47,9 +43,9 @@ const PhotoUploadPage = () => {
           },
           body: JSON.stringify({ image: base64Image }),
         });
-
+  
         const data = await response.json();
-
+  
         if (response.ok) {
           // Persist data using @vercel/sql
           const response2 = await fetch("/api/save-image-result", {
@@ -59,17 +55,17 @@ const PhotoUploadPage = () => {
             },
             body: JSON.stringify(data),
           });
-
+  
           const data2 = await response2.json();
-
+  
           if (!response2.ok) {
             console.error(data2.error);
             alert("Error: " + data2.error);
             return;
           }
-
+  
           const nextPage = `/report?vehicle=${params.get("vehicle")}`;
-
+  
           // redirect to the next page
           window.location.href = nextPage;
         } else {
@@ -79,9 +75,10 @@ const PhotoUploadPage = () => {
       } catch (error) {
         console.error(error);
         alert("An error occurred while processing the image.");
+      } finally {
+        // Ensure loading is always stopped after try/catch
+        setLoading(false);
       }
-
-      setLoading(false);
     };
   };
 
