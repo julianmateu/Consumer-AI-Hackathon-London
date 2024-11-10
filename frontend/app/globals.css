@@ -78,7 +78,7 @@ body {
 .phone-container-content button {
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: #00539CFF;
+  background-color: #67ddc1;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -86,7 +86,7 @@ body {
 }
 
 .phone-container-content button:hover {
-  background-color: #0275d8;
+  background-color: #67ddc1;
 }
 
 .phone-container-content ul {

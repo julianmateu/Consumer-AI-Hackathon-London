@@ -8,10 +8,20 @@ const AccountInfoPage: React.FC = () => {
   return (
     <div className="phone-container">
       <div className="phone-container-banner">
-      <Image src="/company-name.png" alt="App Logo" width={100} height={100} />
+        <Image src="/company-name.png" alt="App Logo" width={100} height={100} />
       </div>
       <div className="phone-container-content">
         <h1>Welcome, {userData.name}</h1>
+        <Image
+          className="assistant-avatar"
+          src="/company-logo.png"
+          alt="Assistant Avatar"
+          width={100}
+          height={100}
+        ></Image>
+        <br />
+        <br />
+        <br />
         <p><strong>Address:</strong> {userData.address}</p>
         <p><strong>Policy Number:</strong> {userData.policyNumber}</p>
         <button>

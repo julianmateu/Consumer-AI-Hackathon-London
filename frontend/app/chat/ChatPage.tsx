@@ -87,7 +87,7 @@ const ChatWindow: React.FC = () => {
         <div className="chat-header">
           <Image
             className="assistant-avatar"
-            src="/shuri.webp"
+            src="/shuri.png"
             alt="Assistant Avatar"
             width={100}
             height={100}
