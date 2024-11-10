@@ -14,34 +14,44 @@
   }
 }
 
-/* body {
+body {
   color: var(--foreground);
   background: var(--background);
+  background-image: url('https://images.ctfassets.net/kftzwdyauwt9/3ND00DMJCGocsrnNtx1E15/4037d25fe74733aaf604061293faf647/Alignment_Blog_5_29.png?w=3840&q=90&fm=webp');
   font-family: Arial, Helvetica, sans-serif;
-} */
-
-
-.account-info-container {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #f7f9fc;
-  border: 1px solid #dfe3e8;
-  border-radius: 8px;
-  text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.account-info-container h1 {
+
+.phone-container {
+  width: 375px;
+  height: 667px;
+  background-color: white;
+  border: 16px solid black;
+  border-radius: 36px;
+  padding: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px auto;
+  overflow: hidden;
+}
+
+.phone-container h1 {
   color: #2c3e50;
 }
 
-.account-info-container p {
+.phone-container h2 {
+  color: #2c3e50;
+  text-align: center;
+}
+
+.phone-container p {
   color: #34495e;
   font-size: 18px;
 }
 
-.account-info-container button {
+.phone-container button {
   margin-top: 20px;
   padding: 10px 20px;
   background-color: #00539CFF;
@@ -51,32 +61,16 @@
   cursor: pointer;
 }
 
-.account-info-container button:hover {
+.phone-container button:hover {
   background-color: #0275d8;
 }
 
-
-
-
-
-.vehicle-selection-container {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.vehicle-selection-container h2 {
-  color: #2c3e50;
-  text-align: center;
-}
-
-.vehicle-selection-container ul {
+.phone-container ul {
   list-style: none;
   padding: 0;
 }
 
-.vehicle-selection-container li {
+.phone-container li {
   padding: 15px;
   margin: 10px 0;
   border: 1px solid #dfe3e8;
@@ -85,73 +79,16 @@
   background-color: #fff;
 }
 
-.vehicle-selection-container li:hover {
+.phone-container li:hover {
   background-color: #f1f1f1;
 }
 
-.vehicle-selection-container li p {
-  margin: 5px 0;
-  color: #34495e;
-}
 
-
-
-
-
-.photo-upload-container {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
-  text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.photo-upload-container h2 {
-  color: #2c3e50;
-}
-
-.photo-upload-container input[type="file"] {
+.phone-container input[type="file"] {
   margin: 20px 0;
 }
 
-.photo-upload-container button {
-  padding: 10px 20px;
-  background-color: #00539CFF;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.photo-upload-container button:hover {
-  background-color: #0275d8;
-}
-
-
-
-
-.report-page-container {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #f7f9fc;
-  border: 1px solid #dfe3e8;
-  border-radius: 8px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.report-page-container h2 {
-  color: #2c3e50;
-  text-align: center;
-}
-
-.report-page-container p {
-  color: #34495e;
-  font-size: 18px;
-  margin: 10px 0;
-}
-
-.report-page-container input {
+.phone-container input {
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #dfe3e8;
@@ -159,7 +96,7 @@
 }
 
 /* Long input for description with text wrapping and enough height for content */
-.report-page-container textarea {
+.phone-container textarea {
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #dfe3e8;
@@ -177,13 +114,3 @@
   cursor: pointer;
 }
 
-.thanks-container {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: lightgreen;
-  border: 1px solid #dfe3e8;
-  border-radius: 8px;
-  text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}

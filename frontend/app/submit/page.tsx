@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
         <AccountInfoPage></AccountInfoPage>
-        <div className="thanks-container">
+        <div className="phone-container">
             <h1>Thank you for submitting your claim</h1>
         </div>
     </>

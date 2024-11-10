@@ -7,7 +7,7 @@ const VehicleSelectionPage: React.FC = () => {
 
 
   return (
-    <div className="vehicle-selection-container">
+    <div className="phone-container">
       <h2>Select a Vehicle</h2>
       <ul>
         {vehicles.map((vehicle, index) => (

@@ -26,7 +26,7 @@ const ReportPage: React.FC = () => {
 
 
   return (
-    <div className="report-page-container">
+    <div className="phone-container">
       <h2>Claim Report Summary</h2>
       <p><strong>Policy Number:</strong> {reportData.policyNumber}</p>
       <p><strong>Name:</strong> {reportData.userName}</p>

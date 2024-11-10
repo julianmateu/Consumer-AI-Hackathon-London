@@ -19,7 +19,7 @@ const PhotoUploadPage: React.FC = () => {
   };
 
   return (
-    <div className="photo-upload-container">
+    <div className="phone-container">
       <h2>Attach Photos</h2>
       <input type="file" multiple onChange={handleFileChange} />
       <button onClick={handleSubmit}>Continue</button>
