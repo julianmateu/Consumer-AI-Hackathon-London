@@ -3,13 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { reportData as mockReportData } from "../mockdata";
 import { fetchReportData } from "./actions";
 
 const ReportPage: React.FC = () => {
   const params = useSearchParams();
 
-  const [reportData, setReportData] = useState<typeof mockReportData | null>(
+  const [reportData, setReportData] = useState<Record<string, string> | null>(
     null
   );
 
