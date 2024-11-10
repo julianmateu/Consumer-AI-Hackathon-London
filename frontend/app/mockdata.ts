@@ -21,7 +21,7 @@ export const reportData = {
   userName: "John Doe",
   vehicle: "Tesla Cybertruck (AB123CD)",
   vehicleType: "Pickup Truck",
-  photosAttached: 1,
+  photosAttached: "1",
   photoUrl: "/crash_pic.png",
   status: "Submitted",
   damageLevel: "Medium",

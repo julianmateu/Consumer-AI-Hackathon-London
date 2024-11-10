@@ -4,19 +4,26 @@ import Image from "next/image";
 import { useState } from "react";
 
 const PhotoUploadPage = () => {
+<<<<<<< HEAD
   const [loading, setLoading] = useState(false);
   const [file, setFile] = useState(null);
+=======
+  const [file, setFile] = useState<File|null>(null);
+>>>>>>> 2aa7ac9273e498427382ba7f87e60fcd3f15c824
   const params = useSearchParams();
 
   // Handle file selection
-  const handleFileChange = (e) => {
-    if (e.target.files.length > 0) {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // e = e as unknown as typeof e & { target: {files: []} };
+    if (!e.target.files) {
+      setFile(null);
+    } else if  (e.target.files.length > 0) {
       setFile(e.target.files[0]);
     }
   };
 
   // Handle form submission
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!file) {
@@ -29,7 +36,7 @@ const PhotoUploadPage = () => {
     reader.readAsDataURL(file);
     reader.onloadend = async () => {
       setLoading(true);
-      const base64Image = reader.result.split(",")[1]; // Remove data URL prefix
+      const base64Image = (reader.result as string)?.split(",")[1]; // Remove data URL prefix
 
       // Send to API route
       try {
