@@ -28,7 +28,7 @@ body {
   background-color: white;
   border: 16px solid black;
   border-radius: 36px;
-  padding: 10px;
+  padding: 0; 
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
@@ -37,21 +37,43 @@ body {
   overflow: hidden;
 }
 
-.phone-container h1 {
+.phone-container-banner {
+  width: 100%;
+  background-color: #00539CFF;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.phone-container-content {
+  flex: 1;
+  width: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.phone-container-content h1 {
   color: #2c3e50;
 }
 
-.phone-container h2 {
+.phone-container-content h2 {
   color: #2c3e50;
   text-align: center;
 }
 
-.phone-container p {
+.phone-container-content p {
   color: #34495e;
   font-size: 18px;
 }
 
-.phone-container button {
+.phone-container-content button {
   margin-top: 20px;
   padding: 10px 20px;
   background-color: #00539CFF;
@@ -61,16 +83,16 @@ body {
   cursor: pointer;
 }
 
-.phone-container button:hover {
+.phone-container-content button:hover {
   background-color: #0275d8;
 }
 
-.phone-container ul {
+.phone-container-content ul {
   list-style: none;
   padding: 0;
 }
 
-.phone-container li {
+.phone-container-content li {
   padding: 15px;
   margin: 10px 0;
   border: 1px solid #dfe3e8;
@@ -79,16 +101,15 @@ body {
   background-color: #fff;
 }
 
-.phone-container li:hover {
+.phone-container-content li:hover {
   background-color: #f1f1f1;
 }
 
-
-.phone-container input[type="file"] {
+.phone-container-content input[type="file"] {
   margin: 20px 0;
 }
 
-.phone-container input {
+.phone-container-content input {
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #dfe3e8;
@@ -96,7 +117,7 @@ body {
 }
 
 /* Long input for description with text wrapping and enough height for content */
-.phone-container textarea {
+.phone-container-content textarea {
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #dfe3e8;
@@ -104,13 +125,3 @@ body {
   width: 100%;
   height: 100px;
 }
-
-.report-page-container button {
-  padding: 10px 20px;
-  background-color: #00539CFF;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-

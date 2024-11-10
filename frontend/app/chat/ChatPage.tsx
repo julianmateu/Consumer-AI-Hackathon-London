@@ -79,44 +79,47 @@ const ChatWindow: React.FC = () => {
   }
 
   return (
-    <div className="chat-window-container">
-      <div className="chat-header">
-        <Image
-          className="assistant-avatar"
-          src="/shuri.webp"
-          alt="Assistant Avatar"
-          width={100}
-          height={100}
-        ></Image>
-        <div className="status-indicators">
+    <div className="phone-container">
+      <div className="phone-container-banner">SureSafe</div>
+      <div className="phone-container-content">
+        <div className="chat-header">
+          <Image
+            className="assistant-avatar"
+            src="/shuri.webp"
+            alt="Assistant Avatar"
+            width={100}
+            height={100}
+          ></Image>
+          <div className="status-indicators">
             <p>Shuri, our AI assistant, will help you to complete your claim.</p>
-          <div
-            className={`status ${isConnected ? "connected" : "disconnected"}`}
-          >
-            {isConnected ? "Connected" : "Disconnected"}
-          </div>
-          <div className={`speaking-status ${speakingStatus.mode}`}>
-            {speakingStatus.mode === "speaking"
-              ? "Agent Speaking"
-              : "Agent Silent"}
+            <div
+              className={`status ${isConnected ? "connected" : "disconnected"}`}
+            >
+              {isConnected ? "Connected" : "Disconnected"}
+            </div>
+            <div className={`speaking-status ${speakingStatus.mode}`}>
+              {speakingStatus.mode === "speaking"
+                ? "Agent Speaking"
+                : "Agent Silent"}
+            </div>
           </div>
         </div>
-      </div>
-      <div className="chat-controls">
-        <button
-          className="button start-button"
-          disabled={isConnected}
-          onClick={startConversation}
-        >
-          Start Conversation
-        </button>
-        <button
-          className="button end-button"
-          disabled={!isConnected}
-          onClick={endConversation}
-        >
-          End Conversation
-        </button>
+        <div className="chat-controls">
+          <button
+            className="button start-button"
+            disabled={isConnected}
+            onClick={startConversation}
+          >
+            Start Conversation
+          </button>
+          <button
+            className="button end-button"
+            disabled={!isConnected}
+            onClick={endConversation}
+          >
+            End Conversation
+          </button>
+        </div>
       </div>
     </div>
   );
