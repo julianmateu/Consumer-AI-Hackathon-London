@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 const PhotoUploadPage = () => {
+  const [loading, setLoading] = useState(false);
   const [file, setFile] = useState(null);
   const params = useSearchParams();
 
@@ -27,6 +28,7 @@ const PhotoUploadPage = () => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = async () => {
+      setLoading(true);
       const base64Image = reader.result.split(",")[1]; // Remove data URL prefix
 
       // Send to API route
@@ -71,6 +73,8 @@ const PhotoUploadPage = () => {
         console.error(error);
         alert("An error occurred while processing the image.");
       }
+
+      setLoading(false);
     };
   };
 
@@ -85,15 +89,23 @@ const PhotoUploadPage = () => {
         />
       </div>
       <div className="phone-container-content photo-upload-container">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleFileChange}
-            required
-          />
-          <button type="submit">Upload Image</button>
-        </form>
+        {loading && (
+          <div className="loading-overlay">
+            <div className="spinner"></div>
+          </div>
+        )}
+        
+        {!loading && (
+          <form onSubmit={handleSubmit}>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleFileChange}
+              required
+            />
+            <button type="submit">Upload Image</button>
+          </form>
+        )}
       </div>
     </div>
   );

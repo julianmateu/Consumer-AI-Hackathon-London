@@ -128,3 +128,30 @@ body {
   width: 100%;
   height: 100px;
 }
+
+
+/* Spinner styles */
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border-left-color: #67ddc1;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Position spinner inside the phone-container-content */
+.loading-overlay {
+  width: 375px;
+  height: 667px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.8);
+}
