@@ -3,11 +3,26 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { useSearchParams } from 'next/navigation'
-import { reportData } from '../mockdata'
+import { reportData as mockReportData } from '../mockdata'
+import { fetchReportData } from '../final_report/actions';
+import { useEffect, useState } from 'react';
 
 const ReportPage: React.FC = () => {
 
   const params = useSearchParams()
+
+  const [reportData, setReportData] = useState<typeof mockReportData | null>(null)
+
+  useEffect(() => {
+      console.log('Fetching report data for vehicle:', params.get('vehicle'))
+      fetchReportData(params.get('vehicle')||"", true).then(report => {
+        setReportData(report)
+      })
+  }, [params])
+
+  if (!reportData) {
+    return <div>Loading...</div>
+  }
 
   return (
     <div className="phone-container">

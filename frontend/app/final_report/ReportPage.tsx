@@ -5,7 +5,6 @@ import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation'
 import { reportData as mockReportData } from '../mockdata'
 import { fetchReportData } from './actions';
-import Image from 'next/image';
 
 const ReportPage: React.FC = () => {
 
@@ -15,7 +14,7 @@ const ReportPage: React.FC = () => {
 
   useEffect(() => {
     console.log('Fetching report data for vehicle:', params.get('vehicle'))
-    fetchReportData(params.get('vehicle') || "").then(report => {
+    fetchReportData(params.get('vehicle') || "", false).then(report => {
       setReportData(report)
     })
   }, [params])

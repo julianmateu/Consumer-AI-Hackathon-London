@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { Conversation } from "@11labs/client";
 import { getAgentId } from "./actions";
 import "./globals.css";
-import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import Image from 'next/image';
 
