@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import { Conversation } from "@11labs/client";
 import { getAgentId } from "./actions";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
 import "./globals.css";
+import { useSearchParams } from "next/navigation";
 
 interface Mode {
   mode: string;

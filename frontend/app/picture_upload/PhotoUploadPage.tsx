@@ -1,33 +1,99 @@
 "use client";
-import React, { useState } from 'react';
-import { useSearchParams } from 'next/navigation'
-import Image from 'next/image';
+import { useSearchParams } from "next/navigation";
+import Image from "next/image";
+import { useState } from "react";
 
-const PhotoUploadPage: React.FC = () => {
-  const [selectedFiles, setSelectedFiles] = useState<FileList | null>(null);
-  const params = useSearchParams()
+const PhotoUploadPage = () => {
+  const [file, setFile] = useState(null);
+  const params = useSearchParams();
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedFiles(e.target.files);
+  // Handle file selection
+  const handleFileChange = (e) => {
+    if (e.target.files.length > 0) {
+      setFile(e.target.files[0]);
+    }
   };
 
-  const handleSubmit = () => {
-    // Logic to handle file upload and navigate to ReportPage
-    console.log('Files selected:', selectedFiles);
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    // redirect to the next page
-    window.location.href = `/report?vehicle=${params.get('vehicle')}`;
+    if (!file) {
+      alert("Please select an image file");
+      return;
+    }
+
+    // Read file and convert to base64
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = async () => {
+      const base64Image = reader.result.split(",")[1]; // Remove data URL prefix
+
+      // Send to API route
+      try {
+        const response = await fetch("/api/upload-image", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ image: base64Image }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          // Persist data using @vercel/sql
+          const response2 = await fetch("/api/save-image-result", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          });
+
+          const data2 = await response2.json();
+
+          if (!response2.ok) {
+            console.error(data2.error);
+            alert("Error: " + data2.error);
+            return;
+          }
+
+          const nextPage = `/report?vehicle=${params.get("vehicle")}`;
+
+          // redirect to the next page
+          window.location.href = nextPage;
+        } else {
+          console.error(data.error);
+          alert("Error: " + data.error);
+        }
+      } catch (error) {
+        console.error(error);
+        alert("An error occurred while processing the image.");
+      }
+    };
   };
 
   return (
     <div className="phone-container">
       <div className="phone-container-banner">
-        <Image src="/company-name.png" alt="App Logo" width={100} height={100} />
+        <Image
+          src="/company-name.png"
+          alt="App Logo"
+          width={100}
+          height={100}
+        />
       </div>
-      <div className="phone-container-content">
-        <h2>Please attach a photo of the damage to your vehicle</h2>
-        <input type="file" multiple onChange={handleFileChange} />
-        <button onClick={handleSubmit}>Continue</button>
+      <div className="phone-container-content photo-upload-container">
+        <form onSubmit={handleSubmit}>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleFileChange}
+            required
+          />
+          <button type="submit">Upload Image</button>
+        </form>
       </div>
     </div>
   );
