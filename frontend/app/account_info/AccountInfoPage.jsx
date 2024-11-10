@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import { userData } from '../mockdata'
 
-const AccountInfoPage: React.FC = () => {
+const AccountInfoPage = ({children}) => {
 
   return (
     <div className="phone-container">
@@ -27,6 +27,7 @@ const AccountInfoPage: React.FC = () => {
         <button>
           <Link href="/start_claim">Report a Claim</Link>
         </button>
+        {children}
       </div>
     </div>
   );
