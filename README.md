@@ -1,12 +1,24 @@
 # Consumer-AI-Hackathon-London
 
+Team SureSafe
 
-```bash
-poetry env use python
-poetry install --no-root
-```
+This repo contains the UI (mock mobile app) for that allows a customer of SureSafe to register a claim for a vehicle accident. 
 
-## UI
+The app flow starts with some mocked user data (representing a user database) where the user selects the vehicle they want to register the claim for.
+
+Then the user uploads an image of the damage to this vehicle. This is sent to OpenAI, via a AWS Lambda, for classification on damage level and a description of the damage.
+
+The user then begins an interaction with the Elevenlabs Conversational Agent where all the prior information is passed to the agent along with it's configured objectives.
+
+Finally, the agent posts the collected outputs to an endpoint that persists the claims data.
+
+## OpenAI
+
+Interaction with OpenAI is via an AWS ApiGateway and Lambdas. Lambdas uses a simple authorization. Deployment of the api was done manually.
+
+## Frontend
+
+Built using NextJs
 
 ```bash
 cd frontend
@@ -15,8 +27,9 @@ npm install
 npm run dev
 ```
 
+## Elevenlabs
 
-## Agent configuration
+## Conversational Agent configuration
 
 First message:
 ```md
@@ -83,27 +96,3 @@ Location:
 Number_of_parties
 Additional_Info:
 Time_of_day
-
-
-
-Report
-- Customer Name, address
-Policy number
-
-
-
-
-
-
-
-
-# TODOs:
-1. generate types for all data models
-2. dont use mock data, fetch with APIs, use props
-3. Add global state with zustand for the report data and app
-4. Add persistance in the backend?
-5. Port the lambda function to the backend
-6. make sure to call the OpenAI API and process the response
-7. Handle waiting states
-9. Add callback for the voice chat's response
-
