@@ -39,12 +39,14 @@ body {
 
 .phone-container-banner {
   width: 100%;
-  background-color: #00539CFF;
-  color: white;
+  background-color: lightgray;
   padding: 10px 0;
   text-align: center;
   font-size: 1.2em;
   font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .phone-container-content {

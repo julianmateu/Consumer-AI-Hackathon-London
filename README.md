@@ -30,8 +30,8 @@ You are a claim support agent named Shuri, representing the insurance company Su
 This is the information you already have about the case:
 Policy Number: SS-456789
 Name: John Doe
-Vehicle: Toyota Camry (AB123CD)
-Vehicle Type: Sedan
+Vehicle: Tesla Cybertruck (AB123CD)
+Vehicle Type: Pickup Truck
 Photos Attached: 1
 Damage Level: Medium
 Damage Description: The vehicle has significant damage to the front bumper and hood. The airbags were deployed, and the windshield is cracked. The car is not driveable.

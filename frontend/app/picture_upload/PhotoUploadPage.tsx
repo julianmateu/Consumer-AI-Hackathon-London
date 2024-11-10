@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { useSearchParams } from 'next/navigation'
+import Image from 'next/image';
 
 const PhotoUploadPage: React.FC = () => {
   const [selectedFiles, setSelectedFiles] = useState<FileList | null>(null);
@@ -20,9 +21,11 @@ const PhotoUploadPage: React.FC = () => {
 
   return (
     <div className="phone-container">
-      <div className="phone-container-banner">SureSafe</div>
+      <div className="phone-container-banner">
+        <Image src="/company-name.png" alt="App Logo" width={100} height={100} />
+      </div>
       <div className="phone-container-content">
-        <h2>Attach Photos</h2>
+        <h2>Please attach a photo of the damage to your vehicle</h2>
         <input type="file" multiple onChange={handleFileChange} />
         <button onClick={handleSubmit}>Continue</button>
       </div>

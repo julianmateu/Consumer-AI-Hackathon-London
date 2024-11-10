@@ -8,21 +8,21 @@ interface Vehicle {
   registrationNumber: string;
   make: string;
   model: string;
+  image: string
 }
 
 export const vehicles: Vehicle[] = [
-  { registrationNumber: "AB123CD", make: "Toyota", model: "Camry" },
-  { registrationNumber: "EF456GH", make: "Honda", model: "Civic" },
-  { registrationNumber: "IJ789KL", make: "Ford", model: "Focus" },
+  { registrationNumber: "AB123CD", make: "Tesla", model: "Cybertruck", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/2024_Tesla_Cybertruck_Foundation_Series%2C_front_left_%28Greenwich%29.jpg/640px-2024_Tesla_Cybertruck_Foundation_Series%2C_front_left_%28Greenwich%29.jpg" },
+  { registrationNumber: "EF456GH", make: "Honda", model: "Civic", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX6dtM__iBXujBpDosob3AcYFV1nX4dfZ8ow&s" },
 ];
 
 export const reportData = {
   policyNumber: "SS-456789",
   userName: "John Doe",
-  vehicle: "Toyota Camry (AB123CD)",
-  vehicleType: "Sedan",
+  vehicle: "Tesla Cybertruck (AB123CD)",
+  vehicleType: "Pickup Truck",
   photosAttached: 1,
-  pohtoUrl: "/crash_pic.png",
+  photoUrl: "/crash_pic.png",
   status: "Submitted",
   damageLevel: "Medium",
   damageDescription:

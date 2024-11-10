@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation'
 import { reportData as mockReportData } from '../mockdata'
 import { fetchReportData } from './actions';
+import Image from 'next/image';
 
 const ReportPage: React.FC = () => {
 
@@ -27,7 +28,9 @@ const ReportPage: React.FC = () => {
 
   return (
     <div className="phone-container">
-      <div className="phone-container-banner">SureSafe</div>
+      <div className="phone-container-banner">
+        <Image src="/company-name.png" alt="App Logo" width={100} height={100} />
+      </div>
       <div className="phone-container-content">
         <h2>Claim Report Summary</h2>
         <p><strong>Policy Number:</strong> {reportData.policyNumber}</p>
@@ -35,7 +38,7 @@ const ReportPage: React.FC = () => {
         <p><strong>Vehicle:</strong> {reportData.vehicle}</p>
         <p><strong>Vehicle Type:</strong> {reportData.vehicleType}</p>
         <p><strong>Photos Attached:</strong> {reportData.photosAttached}</p>
-        <p><Image src={reportData.pohtoUrl} alt="photo" width={100} height={100}></Image></p>
+        <p><Image src={reportData.photoUrl} alt="photo" width={100} height={100}></Image></p>
         <p><strong>Damage Level:</strong> <input type="text" defaultValue={reportData.damageLevel} onChange={() => {/*TODO*/ }} /></p>
         <p><strong>Damage Description:</strong>
           <textarea defaultValue={reportData.damageDescription} onChange={() => {/*TODO*/ }} /></p>

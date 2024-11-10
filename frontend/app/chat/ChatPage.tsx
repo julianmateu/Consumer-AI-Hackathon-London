@@ -5,6 +5,7 @@ import { getAgentId } from "./actions";
 import "./globals.css";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
+import Image from 'next/image';
 
 interface Mode {
   mode: string;
@@ -80,7 +81,9 @@ const ChatWindow: React.FC = () => {
 
   return (
     <div className="phone-container">
-      <div className="phone-container-banner">SureSafe</div>
+      <div className="phone-container-banner">
+        <Image src="/company-name.png" alt="App Logo" width={100} height={100} />
+      </div>
       <div className="phone-container-content">
         <div className="chat-header">
           <Image
