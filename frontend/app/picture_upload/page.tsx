@@ -1,7 +1,10 @@
+import { Suspense } from "react";
 import PhotoUploadPage from "./PhotoUploadPage";
 
 export default function Home() {
   return (
-    <PhotoUploadPage></PhotoUploadPage>
+    <Suspense fallback="loading...">
+      <PhotoUploadPage></PhotoUploadPage>
+    </Suspense>
   );
 }

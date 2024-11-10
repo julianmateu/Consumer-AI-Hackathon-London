@@ -9,7 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@11labs/client": "0.0.1",
+    "@11labs/client": "0.0.2",
+    "@vercel/postgres": "^0.10.0",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-device-permission": "^1.1.0",

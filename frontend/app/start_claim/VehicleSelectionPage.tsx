@@ -1,18 +1,10 @@
 import Link from 'next/link';
 import React from 'react';
+import { vehicles } from '../mockdata';
 
-interface Vehicle {
-  registrationNumber: string;
-  make: string;
-  model: string;
-}
 
 const VehicleSelectionPage: React.FC = () => {
-  const vehicles: Vehicle[] = [
-    { registrationNumber: 'AB123CD', make: 'Toyota', model: 'Camry' },
-    { registrationNumber: 'EF456GH', make: 'Honda', model: 'Civic' },
-    { registrationNumber: 'IJ789KL', make: 'Ford', model: 'Focus' },
-  ];
+
 
   return (
     <div className="vehicle-selection-container">

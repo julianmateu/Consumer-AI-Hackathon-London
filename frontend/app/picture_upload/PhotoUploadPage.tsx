@@ -12,6 +12,7 @@ const PhotoUploadPage: React.FC = () => {
 
   const handleSubmit = () => {
     // Logic to handle file upload and navigate to ReportPage
+    console.log('Files selected:', selectedFiles);
     
     // redirect to the next page
     window.location.href = `/report?vehicle=${params.get('vehicle')}`;

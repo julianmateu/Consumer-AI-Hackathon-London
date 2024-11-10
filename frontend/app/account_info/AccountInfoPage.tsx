@@ -1,12 +1,8 @@
 import Link from 'next/link';
 import React from 'react';
+import { userData } from '../mockdata'
 
 const AccountInfoPage: React.FC = () => {
-  const userData = {
-    name: 'John Doe',
-    address: '123 Main St, Springfield',
-    policyNumber: 'SS-456789',
-  };
 
   return (
     <div className="account-info-container">

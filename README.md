@@ -1,5 +1,4 @@
 # Consumer-AI-Hackathon-London
-# Consumer-AI-Hackathon-London
 
 
 ```bash
@@ -19,20 +18,28 @@ npm run dev
 
 ## Agent configuration
 
-### First message
+First message:
 ```md
-Hi, I'm Shuri. I'm here to help you submit a claim. Tell me what happened.
+Hi, I'm Shuri, I'm here to help you submit a claim. I already have some information about the incident and your policy, we just need to fill in the gaps. Can you tell me what happened?
 ```
 
-### Prompt
+system prompt:
 ```md
-You are a claim support agent named Shuri, representing the insurance company SureSafe. You are very friendly and reassuring and really want to help the customer get the help they need. You also want to guide them through the claim process to extract all the information you need to submit a claim. The decision tree is on the knowledge base. You will reassure the customer, and provide them information they need (such as remind them about the steps to follow to make sure they are safe and gather insurance details form the counter party), and also ask follow up questions until you have all the information you need for submitting a full claim. Answer in 3 to 7 sentences in most cases.
+You are a claim support agent named Shuri, representing the insurance company SureSafe based in the UK. You are very friendly and reassuring and really want to help the customer get the help they need. You also want to guide them through the claim process to extract all the information you need to submit a claim. The information you need to gather is specified as TARGET INFORMATION in the knowledge base. Make questions to the customer until you have all required information. Answer in 3 to 7 sentences in most cases.
+
+This is the information you already have about the case:
+Policy Number: SS-456789
+Name: John Doe
+Vehicle: Toyota Camry (AB123CD)
+Vehicle Type: Sedan
+Photos Attached: 1
+Damage Level: Medium
+Damage Description: The vehicle has significant damage to the front bumper and hood. The airbags were deployed, and the windshield is cracked. The car is not driveable.
 ```
 
-### Knowledge base
-
-#### Decision tree for claim submission
+Knowledge base:
 ```md
+### TARGET INFORMATION
 ### 1. **Start**: **Type of Claim**
    - **Motor Vehicle** (e.g., car, motorcycle, truck)
    - **Non-Motor** (directs to other departments or claim types)
@@ -61,21 +68,6 @@ You are a claim support agent named Shuri, representing the insurance company Su
    - **Rural Area** (countryside, small villages)
    - **Highway**
    - **Parking Lot/Private Property**
-
-### 7. **Further Actions Based on Responses**
-
-#### If **Single-Party + Minor Damage**
-   - Suggest self-service claim (photos of damage, cost estimate)
-   - Offer quick claim approval if policy covers minor damages
-
-#### If **Multi-Party + Major Damage**
-   - Request additional documentation (photos, police report, statements from other parties)
-   - Schedule inspection or assessment, if needed
-
-#### If **Highway + Nighttime + Multi-Party**
-   - Flag for potential serious accident handling
-   - Involve human agent for more detailed follow-up
-
 ```
 
 ## Data model
@@ -97,3 +89,21 @@ Time_of_day
 Report
 - Customer Name, address
 Policy number
+
+
+
+
+
+
+
+
+# TODOs:
+1. generate types for all data models
+2. dont use mock data, fetch with APIs, use props
+3. Add global state with zustand for the report data and app
+4. Add persistance in the backend?
+5. Port the lambda function to the backend
+6. make sure to call the OpenAI API and process the response
+7. Handle waiting states
+9. Add callback for the voice chat's response
+

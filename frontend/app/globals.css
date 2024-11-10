@@ -176,3 +176,14 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+.thanks-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: lightgreen;
+  border: 1px solid #dfe3e8;
+  border-radius: 8px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

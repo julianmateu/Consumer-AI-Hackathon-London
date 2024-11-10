@@ -1,7 +1,10 @@
+import { Suspense } from "react";
 import ChatPage from "./ChatPage";
 
 export default function Home() {
   return (
-    <ChatPage></ChatPage>
+    <Suspense fallback="loading...">
+        <ChatPage></ChatPage>\
+    </Suspense>
   );
 }
