@@ -101,7 +101,7 @@ const PhotoUploadPage = () => {
 
         {!loading && (
           <form onSubmit={handleSubmit}>
-            <label>Please upload a picture of the damage to your vehicle</label>
+            <p><i>Please upload a picture of the damage to your vehicle</i></p>
             <input
               type="file"
               accept="image/*"
