@@ -20,7 +20,7 @@ const VehicleSelectionPage: React.FC = () => {
               <Link href={`/picture_upload?vehicle=${vehicle.registrationNumber}`}>
                 <p><strong>{vehicle.registrationNumber}</strong></p>
                 <p>{vehicle.make} {vehicle.model}</p>
-                <Image src={vehicle.image} alt="Image" />
+                <img src={vehicle.image} alt="Image" />
               </Link>
             </li>
           ))}
