@@ -34,51 +34,61 @@ const PhotoUploadPage = () => {
       setLoading(true); // Start loading
 
       const base64Image = (reader.result as string)?.split(",")[1]; // Remove data URL prefix
+    
+      await new Promise((resolve) => setTimeout(resolve, 2000));
 
-      try {
-        const response = await fetch("/api/upload-image", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ image: base64Image }),
-        });
+      setLoading(false); 
 
-        const data = await response.json();
+      const nextPage = `/report?vehicle=${params.get("vehicle")}`;
 
-        if (response.ok) {
-          // Persist data using @vercel/sql
-          const response2 = await fetch("/api/save-image-result", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-          });
+      window.location.href = nextPage;
 
-          const data2 = await response2.json();
+      // OPENAI ENDPOINT REMOVED - MATT POST HACKATHON
 
-          if (!response2.ok) {
-            console.error(data2.error);
-            alert("Error: " + data2.error);
-            return;
-          }
+      // try {
+      //   const response = await fetch("/api/upload-image", {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify({ image: base64Image }),
+      //   });
 
-          const nextPage = `/report?vehicle=${params.get("vehicle")}`;
+      //   const data = await response.json();
 
-          // redirect to the next page
-          window.location.href = nextPage;
-        } else {
-          console.error(data.error);
-          alert("Error: " + data.error);
-        }
-      } catch (error) {
-        console.error(error);
-        alert("An error occurred while processing the image.");
-      } finally {
-        // Ensure loading is always stopped after try/catch
-        setLoading(false);
-      }
+      //   if (response.ok) {
+      //     // Persist data using @vercel/sql
+      //     const response2 = await fetch("/api/save-image-result", {
+      //       method: "POST",
+      //       headers: {
+      //         "Content-Type": "application/json",
+      //       },
+      //       body: JSON.stringify(data),
+      //     });
+
+      //     const data2 = await response2.json();
+
+      //     if (!response2.ok) {
+      //       console.error(data2.error);
+      //       alert("Error: " + data2.error);
+      //       return;
+      //     }
+
+      //     const nextPage = `/report?vehicle=${params.get("vehicle")}`;
+
+      //     // redirect to the next page
+      //     window.location.href = nextPage;
+      //   } else {
+      //     console.error(data.error);
+      //     alert("Error: " + data.error);
+      //   }
+      // } catch (error) {
+      //   console.error(error);
+      //   alert("An error occurred while processing the image.");
+      // } finally {
+      //   // Ensure loading is always stopped after try/catch
+      //   setLoading(false);
+      // }
     };
   };
 
