@@ -4,6 +4,6 @@ import AccountInfoPage from "./account_info/AccountInfoPage";
 
 export default function Home() {
   return (
-    <AccountInfoPage></AccountInfoPage>
+    <AccountInfoPage><div></div></AccountInfoPage>
   );
 }
